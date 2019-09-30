@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Feed.Models.FeedItemModel>
+@{
+    ViewData["Title"] = "Feeds";
+}
+
+<h1>
+    @ViewData["Title"] | <a asp-action="Create">Create</a> |
+    <a asp-action="Index" asp-controller="Feed">Back to Feeds</a>
+</h1>
+<form asp-action="Index">
+    <p>
+        Title: <input type="text" name="SearchString">
+        <input type="submit" value="Filter" class="btn btn-primary" />
+    </p>
+</form>
+<table class="table">
+    <tbody>
+        @foreach (var item in Model.OrderBy(x => x.Title))
+        {
+            @await Html.PartialAsync("~/Views/FeedItem/_FeedItem.cshtml", item)
+        }
+    </tbody>
+</table>

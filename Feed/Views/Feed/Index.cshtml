@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Feed.Models.FeedModel>
+@{
+    ViewData["Title"] = "Feeds";
+}
+
+<h1>@ViewData["Title"] | <a asp-action="Create">Create</a> | 
+    <a asp-action="Index" asp-controller="FeedItem">Items</a></h1>
+<table class="table">
+    <tbody>
+        @foreach (var feed in Model.OrderBy(x => x.Title))
+        {
+            <tr>
+                <td colspan="2">
+                    @Html.DisplayFor(modelItem => feed.Title)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@feed.Id">Edit</a> |
+                    <a asp-action="Create" asp-controller="FeedItem">Create Item</a> |
+                    <a asp-action="Delete" asp-route-id="@feed.Id">Delete</a>
+                </td>
+            </tr>
+            @foreach (var item in feed.Items.OrderBy(x => x.Title))
+            {
+                @await Html.PartialAsync("~/Views/FeedItem/_FeedItem.cshtml", item)
+            }
+        }
+    </tbody>
+</table>

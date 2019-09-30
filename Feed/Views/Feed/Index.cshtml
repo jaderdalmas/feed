@@ -3,8 +3,10 @@
     ViewData["Title"] = "Feeds";
 }
 
-<h1>@ViewData["Title"] | <a asp-action="Create">Create</a> | 
-    <a asp-action="Index" asp-controller="FeedItem">Items</a></h1>
+<h1>
+    @ViewData["Title"] | <a asp-action="Index" asp-controller="FeedItem">Items</a> |
+    <a asp-action="Create">Create</a>
+</h1>
 <table class="table">
     <tbody>
         @foreach (var feed in Model.OrderBy(x => x.Title))

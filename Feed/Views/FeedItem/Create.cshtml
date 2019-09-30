@@ -3,8 +3,11 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>@ViewData["Title"] | <a asp-action="Index">Back to Items</a> | 
-             <a asp-action="Index" asp-controller="Feed">Back to Feeds</a></h1>
+<h1>
+    @ViewData["Title"] |
+    <a asp-action="Index" asp-controller="Feed">Back to Feeds</a> |
+    <a asp-action="Index">Back to Items</a>
+</h1>
 <hr />
 <div class="row">
     <div class="col-md-4">

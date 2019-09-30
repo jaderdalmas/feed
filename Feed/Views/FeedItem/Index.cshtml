@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<Feed.Models.FeedItemModel>
 @{
-    ViewData["Title"] = "Feeds";
+    ViewData["Title"] = "Items";
 }
 
 <h1>
-    @ViewData["Title"] | <a asp-action="Create">Create</a> |
-    <a asp-action="Index" asp-controller="Feed">Back to Feeds</a>
+    <a asp-action="Index" asp-controller="Feed">Feeds</a> | @ViewData["Title"] |
+    <a asp-action="Create">Create</a>
 </h1>
 <form asp-action="Index">
     <p>
